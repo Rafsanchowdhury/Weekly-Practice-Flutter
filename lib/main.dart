@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/data/notifiers.dart';
-import 'package:my_app/views/widget_tree.dart';
+import 'package:my_app/views/pages/welcome_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,15 +20,14 @@ class _MyAppState extends State<MyApp> {
       valueListenable: isDarkModeNotifier,
       builder: (context, isDarkMode, child) {
         return MaterialApp(
-          debugShowCheckedModeBanner: false,
-          theme: ThemeData(
-            colorScheme: ColorScheme.fromSeed(
-              seedColor: Colors.teal,
-              brightness: isDarkMode ? Brightness.dark : Brightness.light,
+            debugShowCheckedModeBanner: false,
+            theme: ThemeData(
+              colorScheme: ColorScheme.fromSeed(
+                seedColor: Colors.teal,
+                brightness: isDarkMode ? Brightness.dark : Brightness.light,
+              ),
             ),
-          ),
-          home: const WidgetTree(),
-        );
+            home: WelcomePage());
       },
     );
   }

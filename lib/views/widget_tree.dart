@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:my_app/data/notifiers.dart';
 import 'package:my_app/views/pages/home_page.dart';
 import 'package:my_app/views/pages/profile_page.dart';
-import 'package:my_app/views/widgets/navbar_widget.dart';
+import 'package:my_app/views/pages/settings_page.dart';
+// import 'package:my_app/views/widgets/navbar_widget.dart';
 
 import '../widgets/navbar_widget.dart';
 
@@ -36,6 +37,21 @@ class WidgetTree extends StatelessWidget {
               },
             ), // ValueListenableBuilder
           ), // IconButton
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return SettingsPage(
+                      title: 'Settings dsdf',
+                    );
+                  },
+                ),
+              );
+            },
+            icon: Icon(Icons.settings),
+          ),
         ],
       ), // AppBar
       body: ValueListenableBuilder(
