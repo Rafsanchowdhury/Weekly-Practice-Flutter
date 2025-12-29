@@ -35,18 +35,45 @@ class _SettingsPageState extends State<SettingsPage> {
               ElevatedButton(
                 onPressed: () {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
+                    const SnackBar(
                       duration: Duration(seconds: 5),
                       content: Text('Snackbar'),
                       behavior: SnackBarBehavior.floating,
                     ),
                   );
                 },
-                child: Text('Open Snackbar'),
+                child: const Text('Open Snackbar'),
+              ),
+              Divider(
+                color: Colors.teal,
+                thickness: 5,
+                endIndent: 200.0,
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                        title: const Text('Alert Title'),
+                        content: const Text('Alert Content'),
+                        actions: [
+                          FilledButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: const Text('Close'),
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                },
+                child: const Text('Open Dialog'),
               ),
               DropdownButton(
                 value: menuItem,
-                items: [
+                items: const [
                   DropdownMenuItem(
                     value: 'e0',
                     child: Text('Select Option'),
@@ -142,26 +169,26 @@ class _SettingsPageState extends State<SettingsPage> {
                   backgroundColor: Colors.teal,
                   foregroundColor: Colors.white,
                 ),
-                child: Text('Click me'),
+                child: const Text('Click me'),
               ),
               ElevatedButton(
                 onPressed: () {},
-                child: Text('Click me'),
+                child: const Text('Click me'),
               ),
               FilledButton(
                 onPressed: () {},
-                child: Text('Click me'),
+                child: const Text('Click me'),
               ),
               TextButton(
                 onPressed: () {},
-                child: Text('Click me'),
+                child: const Text('Click me'),
               ),
               OutlinedButton(
                 onPressed: () {},
-                child: Text('Click me'),
+                child: const Text('Click me'),
               ),
-              CloseButton(),
-              BackButton(),
+              const CloseButton(),
+              const BackButton(),
             ],
           ),
         ),
