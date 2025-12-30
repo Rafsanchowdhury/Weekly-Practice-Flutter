@@ -1,10 +1,12 @@
 // ignore_for_file: unused_import
 
 import 'package:flutter/material.dart';
+import 'package:my_app/data/constants.dart';
 import 'package:my_app/data/notifiers.dart';
 import 'package:my_app/views/pages/home_page.dart';
 import 'package:my_app/views/pages/profile_page.dart';
 import 'package:my_app/views/pages/settings_page.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 // import 'package:my_app/views/widgets/navbar_widget.dart';
 
 import '../widgets/navbar_widget.dart';
@@ -22,11 +24,15 @@ class WidgetTree extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Flutter Mapp'),
+        title: Text('My APP'),
         actions: [
           IconButton(
-            onPressed: () {
+            onPressed: () async {
               isDarkModeNotifier.value = !isDarkModeNotifier.value;
+              final SharedPreferences prefs =
+                  await SharedPreferences.getInstance();
+              await prefs.setBool(
+                  KConstants.themeModeKey, !isDarkModeNotifier.value);
             },
             icon: ValueListenableBuilder(
               valueListenable: isDarkModeNotifier,
