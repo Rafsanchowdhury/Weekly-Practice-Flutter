@@ -21,10 +21,12 @@ class HomePage extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           children: [
+            SizedBox(height: 10),
             HeroWidget(
               title: 'Rafsan',
               nextPage: () => CoursePage(),
             ),
+            SizedBox(height: 5),
             ...List.generate(
               list.length,
               (index) {
